@@ -1,0 +1,24 @@
+---
+name: CMPSC 302: Simon
+break: true
+indent: 2
+---
+
+docs/style/style.css:
+  MatchFileFragment --fragment "TODO" --count 0 --exact --description "[CSS] style.css contains no TODOs"
+  MatchFileFragment --fragment "grid" --count 1 --description "[CSS] style.css creates at least one grid-based element"
+  MatchFileFragment --fragment "media only screen and (max-width" --count 1 --exact --description "[CSS] style.css uses a mobile query"
+
+docs/index.html:
+  MatchFileFragment --fragment "TODO" --count 0 --exact --description "[HTML] index.html contains no TODOs"
+  MatchFileFragment --fragment "top-right" --count 1 --exact --description "[HTML] index.html contains an element with ID of top-right"
+  MatchFileFragment --fragment "top-left" --count 1 --exact --description "[HTML] index.html contains an element with ID of top-left"
+  MatchFileFragment --fragment "bottom-right" --count 1 --exact --description "[HTML] index.html contains an element with ID of bottom-right"
+  MatchFileFragment --fragment "bottom-left" --count 1 --exact --description "[HTML] index.html contains an element with ID of bottom-left"
+  MatchFileFragment --fragment "points" --count 1 --exact --description "[HTML] index.html contains an element with ID of points"
+
+ExecuteCommand --command "html5validator --root docs/" --description "[HTML] The docs/ directory passes W3C validation"
+ExecuteCommand --command "html5validator --root docs/style --skip-non-css" --description "[CSS] The docs/ directory passes W3C validation"
+ExecuteCommand --command "python config/.check.py docs/index.html button 5" --description "[HTML] index.html uses at least 5 <button>s"
+ExecuteCommand --command "python config/.check.py docs/index.html footer 1" --description "[HTML] index.html uses a footer"
+ExecuteCommand --command "python config/.wave.py index.html" --description "[CSS] Site has no contrast issues"

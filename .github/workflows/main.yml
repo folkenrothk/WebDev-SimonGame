@@ -1,0 +1,39 @@
+  name: GatorGrader
+
+  on:
+    push:
+      branches: [ main ]
+
+  env:
+    GWIZ_TOKEN: ${{ secrets.GWIZ_TOKEN }}
+    WAVE_API: ${{ secrets.WAVE_API_KEY }}
+
+  jobs:
+    grade:
+      runs-on: ubuntu-latest
+      steps:
+      - uses: actions/checkout@v2
+        with: 
+          fetch-depth: '0'
+      - name: Setup Python
+        if: always()
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.8
+      - name: Set up grading environment
+        run: |
+          pip install --upgrade pip
+          pip install pipenv
+          pipenv install --dev --three
+          pip install bs4
+          pip install requests
+          pip install html5validator
+      - name: Grade repository
+        run: |
+          source config/.pages.sh
+          gradle grade
+        if: always()
+        env:   
+         PIPENV_VENV_IN_PROJECT: 1
+         PIPENV_IGNORE_VIRTUALENVS: 1
+
