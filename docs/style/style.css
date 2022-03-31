@@ -1,11 +1,74 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 /*
-  TODO: Style the game page according to guidelines
+  Style the game page according to guidelines
   NOTE: To use the above typeface, use font-family: "Press Start 2P" -- the above is
         equivalent to importing it as a stylesheet in HTML.
 */
 
 /*
-  TODO: Implement mobile query for smaller screen sizes.
+  Implement mobile query for smaller screen sizes.
 */
+html{
+  background-color: black;
+  color: white;
+  font-family: "Press Start 2P", sans-serif;
+}
+
+main {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+  grid-gap: 2.5%;
+  margin: 5% 35%;
+}
+
+button {
+  padding: 5rem 5rem;
+  border: none;
+}
+
+footer {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-row: 5vh;
+  align-items: center;
+  margin-top: 5%;
+  margin-bottom: 0;
+}
+
+/* IDs */
+
+#top-left {
+  order: 1;
+  background-color: lime;
+  border-radius: 100% 0 0 0;
+}
+
+#top-right {
+  order: 2;
+  background-color: red;
+  border-radius: 0 100% 0 0;
+
+}
+
+#bottom-left {
+  order: 3;
+  background-color: yellow;
+  border-radius: 0 0 0 100%;
+
+}
+
+#bottom-right {
+  order: 4;
+  background-color: blue;
+  border-radius: 0 0 100% 0;
+}
+
+#start-button {
+  background-color: #d30000;
+  padding: 1rem 1rem;
+  font-family: "Press Start 2P";
+  color: white;
+}
+
