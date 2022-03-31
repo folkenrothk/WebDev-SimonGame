@@ -33,7 +33,7 @@ button {
 footer {
   display: grid;
   grid-template-columns: auto auto auto;
-  grid-row: 5vh;
+  grid-row: auto;
   align-items: center;
   margin-top: 5%;
   margin-bottom: 0;
@@ -63,7 +63,7 @@ footer {
 
 #bottom-right {
   order: 4;
-  background-color: rgb(3, 3, 235);
+  background-color: blue;
   border-radius: 0 0 100% 0;
 }
 
