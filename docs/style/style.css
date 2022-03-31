@@ -43,27 +43,27 @@ footer {
 
 #top-left {
   order: 1;
-  background-color: limegreen;
+  background-color: rgb(125, 206, 125);
   border-radius: 100% 0 0 0;
 }
 
 #top-right {
   order: 2;
-  background-color: rgb(231, 2, 2);
+  background-color: #FD8181;
   border-radius: 0 100% 0 0;
 
 }
 
 #bottom-left {
   order: 3;
-  background-color: yellow;
+  background-color: rgb(241, 241, 114);
   border-radius: 0 0 0 100%;
 
 }
 
 #bottom-right {
   order: 4;
-  background-color: blue;
+  background-color: #8A8AFF;
   border-radius: 0 0 100% 0;
 }
 
