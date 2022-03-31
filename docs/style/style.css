@@ -26,7 +26,7 @@ main {
 button {
   padding: 5rem 5rem;
   border: none;
-  color: white;
+  color: black;
   font-family: "Press Start 2P";
 }
 
@@ -68,7 +68,7 @@ footer {
 }
 
 #start-button {
-  background-color: rgb(231, 2, 2);
+  background-color: #B30000;
   padding: 1rem 1rem;
   font-family: "Press Start 2P";
   color: white;
