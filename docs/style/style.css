@@ -43,7 +43,7 @@ footer {
 
 #top-left {
   order: 1;
-  background-color: rgb(1, 239, 1);
+  background-color: limegreen;
   border-radius: 100% 0 0 0;
 }
 
@@ -56,7 +56,7 @@ footer {
 
 #bottom-left {
   order: 3;
-  background-color: rgb(230, 230, 0);
+  background-color: yellow;
   border-radius: 0 0 0 100%;
 
 }
@@ -68,7 +68,7 @@ footer {
 }
 
 #start-button {
-  background-color: red;
+  background-color: rgb(231, 2, 2);
   padding: 1rem 1rem;
   font-family: "Press Start 2P";
   color: white;
