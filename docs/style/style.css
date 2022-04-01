@@ -28,16 +28,17 @@ main {
 
 button {
   padding: 5rem 5rem;
+  width: 22.5vw;
   border: none;
   color: black;
   font-family: "Press Start 2P";
 }
 
+
 footer {
   display: grid;
   grid-template-columns: auto auto auto;
   grid-row: auto;
-  align-self: baseline;
   align-items: center;
   margin-top: 10%;
   margin-bottom: 0;
@@ -76,3 +77,27 @@ footer {
   color: white;
 }
 
+/* Media Query */
+
+@media only screen and (max-width: 1024px) { 
+  
+  main{
+    grid-template-columns: auto;
+    grid-template-rows: auto auto auto auto;
+    height: auto;
+    width: auto;
+  }
+
+  footer {
+    grid-template-columns: auto;
+    grid-template-rows: auto auto auto;
+    position: fixed;
+    margin-bottom: 0;
+  }
+
+  #top-left, #top-right, #bottom-left, #bottom-right {
+    width: 45vw;
+    border-radius: 0;
+  }
+
+}
