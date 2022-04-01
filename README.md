@@ -9,7 +9,7 @@ Your goal over the course of the next two weeks is to build a reasonably-functio
 
 [![It was LIT](https://img.youtube.com/vi/G6p7zRsECaI/maxresdefault.jpg)](https://www.youtube.com/watch?v=G6p7zRsECaI)
 
-To do this, we will learn the basics of Javscript, namely `events` and `functions`. This will fall in line with our understanding
+To do this, we will learn the basics of Javascript, namely `events` and `functions`. This will fall in line with our understanding
 that HTML and CSS largely _mean_ things and that Javascript _does_ things. However, there are a few steps that we'll look at along
 the way, namely:
 
