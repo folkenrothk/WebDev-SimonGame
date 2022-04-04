@@ -53,18 +53,10 @@ footer {
   border-radius: 100% 0 0 0;
 }
 
-#top-left:active {
-  background-color: green;
-}
-
 #top-right {
   order: 2;
   background-color: #FD8181;
   border-radius: 0 100% 0 0;
-}
-
-#top-right:active {
-  background-color: red;
 }
 
 #bottom-left {
@@ -73,19 +65,12 @@ footer {
   border-radius: 0 0 0 100%;
 }
 
-#bottom-left:active {
-  background-color: yellow;
-}
-
 #bottom-right {
   order: 4;
   background-color: #8A8AFF;
   border-radius: 0 0 100% 0;
 }
 
-#bottom-right:active {
-  background-color: blue;
-}
 
 #start-button {
   background-color: #B30000;
