@@ -16,8 +16,8 @@ def main():
   # Run in headless mode
 
   options = webdriver.ChromeOptions()
-  #options.add_argument("--headless")
-  #options.headless = True
+  options.add_argument("--headless")
+  options.headless = True
 
   service = Service(ChromeDriverManager().install())
   driver = webdriver.Chrome(options=options, service=service)
@@ -25,13 +25,13 @@ def main():
 
   page = sys.argv[1]
 
-  #pages_api = os.getenv("PAGES_URL")
-  #data = json.loads(pages_api)
-  #endpoint = data["html_url"]
+  pages_api = os.getenv("PAGES_URL")
+  data = json.loads(pages_api)
+  endpoint = data["html_url"]
 
   # Local Testing
-  driver.get(f"https://allegheny-computerscience-302-s2022.github.io/cmpsc-302-week-4-basic-javascript-folkenrothk/{page}")
-  #driver.get(f"{endpoint}{page}")
+  #driver.get(f"https://allegheny-computerscience-302-s2022.github.io/cmpsc-302-week-4-basic-javascript-solution/{page}")
+  driver.get(f"{endpoint}{page}")
 
   ids = ["points", "start"]
 
