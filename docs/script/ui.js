@@ -94,7 +94,7 @@ const delay = 10000; //delay for user response
                 gameBtns.forEach(elem => {
                     elem.style.opacity = "100%";
                 });
-                document.getElementById("points").innerText = "You Lose, Play Again?";
+                document.getElementById("points").innerText = "You Lose! Play Again?";
                 document.querySelector(`[data-sound=lose]`).play();
             };
         }, ((lvl + 1) * delay));
