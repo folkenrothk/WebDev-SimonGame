@@ -4,6 +4,15 @@ break: true
 indent: 2
 ---
 
+docs/script/ui.js:
+  MatchFileFragment --fragment "TODO" --count 0 --exact --description "[Javascript] ui.js contains no TODOs"
+  MatchFileFragment --fragment "querySelectorAll" --count 1 --description "[Javascript] ui.js uses querySelectorAll"
+  MatchFileFragment --fragment "querySelector" --count 1 --description "[Javascript] ui.js uses querySelector"
+  MatchFileFragment --fragment "forEach" --count 1 --description "[Javascript] ui.js uses a forEach statement"
+  MatchFileFragment --fragment "innerText" --count 1 --description "[Javascript] ui.js modifies the innerText property"
+  MatchFileFragment --fragment "data-" --count 1 --description "[Javascript] ui.js targets a data- property to play a sound"
+  MatchFileFragment --fragment "play()" --count 1 --description "[Javascript] ui.js uses .play()"
+
 docs/style/style.css:
   MatchFileFragment --fragment "TODO" --count 0 --exact --description "[CSS] style.css contains no TODOs"
   MatchFileFragment --fragment "grid" --count 1 --description "[CSS] style.css creates at least one grid-based element"
