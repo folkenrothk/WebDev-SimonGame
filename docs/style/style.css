@@ -45,6 +45,12 @@ footer {
   margin-bottom: 0;
 }
 
+/* Game Buttons */
+
+.game-button:active {
+  opacity: 100%;
+}
+
 /* IDs */
 
 #top-left {
