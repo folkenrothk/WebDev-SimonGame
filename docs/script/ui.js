@@ -23,7 +23,7 @@ var userChoices = []; // user input/response
 var simonSays = []; // gamePattern
 
 points = 0;
-const delay = 10000; //delay for user response
+const delay = 5000; //delay for user response
 
 
 //Modules of Game Pieces
@@ -97,7 +97,7 @@ const delay = 10000; //delay for user response
                 document.getElementById("points").innerText = "You Lose! Play Again?";
                 document.querySelector(`[data-sound=lose]`).play();
             };
-        }, ((lvl + 1) * delay));
+        }, simonSays.length * delay);
 
     };
 
@@ -126,10 +126,10 @@ function activateBtn(id) {
         const data = elem.getAttribute("data-button");
         const sound = document.querySelector(`[data-sound='${data}']`);
         sound.play();
-    }, 1000);
+    }, 750);
     setTimeout(() => {
         elem.style.opacity = "50%"; 
-    }, 2000);
+    }, 1500);
 };
 
 gameBtns.forEach(elem =>{
