@@ -57,7 +57,5 @@ def main():
   except:
     if not len(driver.execute_script("""return simonSays""")) > 0: exit(1)
 
-  print("SUCCESS!")
-
 if __name__ == "__main__":
   main()
