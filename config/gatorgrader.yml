@@ -31,3 +31,5 @@ ExecuteCommand --command "html5validator --root docs/style --skip-non-css" --des
 ExecuteCommand --command "python config/.check.py docs/index.html button 5" --description "[HTML] index.html uses at least 5 <button>s"
 ExecuteCommand --command "python config/.check.py docs/index.html footer 1" --description "[HTML] index.html uses a footer"
 ExecuteCommand --command "python config/.wave.py index.html" --description "[CSS] Site has no contrast issues"
+ExecuteCommand --command "python config/.selenium.py index.html" --description "[GAME] automated player can play at least one round"
+
