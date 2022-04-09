@@ -1,44 +1,15 @@
 import os
+import re
 import math
 import sys
 import json
 import logging
+from time import sleep
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webelement import WebElement
 from webdriver_manager.chrome import ChromeDriverManager
-
-class Circle:
-
-  def __init__(self, size: dict, loc:dict):
-    self.w = size["width"]
-    self.h = size["height"]
-
-    self.radius = self.w // 2
-
-    # Get center-top point; guaranteed to be on a circular
-    # element, which is really a box which is really a circle
-
-    self.x = loc["x"] + self.radius
-    self.y = loc["y"] + self.radius
-
-def evaluate(
-    target:WebElement,
-    ball:WebElement
-  ) -> bool:
-
-  t_circ = Circle(target.size, target.location)
-  b_circ = Circle(ball.size, ball.location)
-
-  distance = math.sqrt(
-    (t_circ.x - b_circ.x) ** 2 +
-    (t_circ.y - b_circ.y) ** 2
-  )
-
-  if distance + b_circ.radius <= t_circ.radius:
-    return True
-  return False
 
 def main():
 
@@ -50,7 +21,7 @@ def main():
 
   service = Service(ChromeDriverManager().install())
   driver = webdriver.Chrome(options=options, service=service)
-  #driver.maximize_window()
+  driver.maximize_window()
 
   page = sys.argv[1]
 
@@ -59,33 +30,34 @@ def main():
   endpoint = data["html_url"]
 
   # Local Testing
-  #driver.get(f"https://allegheny-college-sandbox.github.io/selenuim-testing/{page}")
+  #driver.get(f"https://allegheny-computerscience-302-s2022.github.io/cmpsc-302-week-4-basic-javascript-solution/{page}")
   driver.get(f"{endpoint}{page}")
 
-  target = driver.find_element(by=By.CSS_SELECTOR, value="#target")
-  ball = driver.find_element(by=By.CSS_SELECTOR, value="#ball")
+  ids = ["points", "start"]
 
-  # Fail if ball is in a trap or water hazard
+  elements = driver.find_elements(by=By.CSS_SELECTOR, value="button")
+  elements += driver.find_elements(by=By.CSS_SELECTOR, value="div")
+
+  discovered = {}
+  for id in ids:
+    for element in elements:
+      id_attr = element.get_attribute("id")
+      if id in id_attr:
+        discovered[id] = element
+
+  sleep(2)
+
+  discovered["start"].click()
+  if not discovered["points"].text.lower() == "points: 0": exit(1)
+
+  sleep(2)
 
   try:
-    trap = driver.find_element(by=By.CSS_SELECTOR, value="#traps")
-    if not evaluate(trap, ball): sys.exit(1)
+    if not len(driver.execute_script("""return gamePattern""")) > 0: exit(1)
   except:
-    print("No traps.")
+    if not len(driver.execute_script("""return simonSays""")) > 0: exit(1)
 
-  try:
-    water = driver.find_element(by=By.CSS_SELECTOR, value="#water")
-    if not evaluate(water, ball): sys.exit(1)
-  except:
-    print("No water hazards.")
-
-  # Fail only if the ball isn't completely concentric to target
-
-  if evaluate(target, ball):
-    print("Ball is concentric to target.")
-    sys.exit(0)
-  print("Ball is not concentric to target.")
-  sys.exit(1)
+  print("SUCCESS!")
 
 if __name__ == "__main__":
   main()
